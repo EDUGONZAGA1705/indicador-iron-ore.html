@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>IRON ORE - Indicador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .widget {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      width: 300px;
+      position: relative;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stock-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .symbol {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .company {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .change {
+      font-size: 14px;
+    }
+
+    .chart-container {
+      margin-top: 12px;
+    }
+
+    .dates {
+      font-size: 11px;
+      color: #777;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .refresh-icon {
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .refresh-icon:hover {
+      opacity: 1;
+    }
+
+    .refresh-icon::before {
+      content: "⟳";
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="widget">
+    <div class="top-row">
+      <div class="stock-info">
+        <span class="symbol">IRON ORE</span>
+        <span class="company">Indicador diário</span>
+      </div>
+      <div class="refresh-icon" onclick="updateData()" title="Atualizar"></div>
+    </div>
+
+    <div class="price" id="price">277.55</div>
+    <div class="change" id="change">+0.21% (0.58)</div>
+
+    <div class="chart-container">
+      <canvas id="chart" height="100"></canvas>
+    </div>
+
+    <div class="dates">
+      <span>2024</span>
+      <span>Mar</span>
+      <span>Jun</span>
+      <span>Set</span>
+      <span>2025</span>
+    </d
